@@ -7,16 +7,21 @@ const ElButton = document.querySelector('button'); */
 
 //console.log(JSON.parse(localStorage.getItem('feedback-form-state')).email);
 
-ElForm.addEventListener('input', throttle(handleInput, 500));
+//ElForm.addEventListener('input', throttle(handleInput, 500));
+ElForm.addEventListener('input', handleInput);
 ElForm.addEventListener('submit', handleSubmit);
 
 function handleInput(event) {
   const {
     elements: { email, message },
   } = event.currentTarget;
-  localStorage.setItem(
-    'feedback-form-state',
-    JSON.stringify({ email: email.value, message: message.value })
+  throttle(
+    localStorage.setItem(
+      'feedback-form-state',
+
+      JSON.stringify({ email: email.value, message: message.value })
+    ),
+    500
   );
 }
 
