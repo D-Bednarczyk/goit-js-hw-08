@@ -1,13 +1,14 @@
-const Eliframe = document.querySelector('#vimeo-player');
-console.log(Eliframe);
 import Player from '@vimeo/player';
 import throttle from 'lodash.throttle';
 
+const Eliframe = document.querySelector('#vimeo-player');
+console.log(Eliframe);
+
 const player = new Player(Eliframe);
 
-console.log(
+/* console.log(
   JSON.parse(localStorage.getItem('videoplayer-current-time')).seconds
-);
+); */
 
 player.on(
   'timeupdate',
